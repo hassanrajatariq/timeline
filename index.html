@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reise-Timeline</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --bg-color: #f8fafc;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --card-bg: #ffffff;
+            --line-color: #e2e8f0;
+            --accent: #3b82f6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+
+        header p {
+            color: var(--text-muted);
+        }
+
+        /* Timeline Styles */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        /* Die vertikale Linie */
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--line-color);
+        }
+
+        .year-section {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .year-label {
+            position: relative;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Punkt für das Jahr */
+        .year-label::before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            border: 3px solid var(--bg-color);
+            box-shadow: 0 0 0 2px var(--primary-color);
+            z-index: 1;
+        }
+
+        .event-card {
+            background: var(--card-bg);
+            padding: 15px 20px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--accent);
+            transition: transform 0.2s ease;
+        }
+
+        .event-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .event-header {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .date-info {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: normal;
+        }
+
+        .details {
+            font-size: 0.95rem;
+            margin-top: 8px;
+            color: var(--text-main);
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+
+        .icon {
+            min-width: 20px;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            .event-header {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Meine Reise-Timeline</h1>
+        <p>Erinnerungen & Abenteuer seit 2012</p>
+    </header>
+
+    <div class="timeline">
+
+        <div class="year-section">
+            <div class="year-label">2012</div>
+            <div class="event-card">
+                <div class="event-header">
+                    <span>📍 Umzug nach Deutschland</span>
+                    <span class="date-info">30.10.2012</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-section">
+            <div class="year-label">2015</div>
+            <div class="event-card">
+                <div class="event-header">
+                    <span>🇪🇸 Barcelona</span>
+                    <span class="date-info">21. Juli – 03. Aug.</span>
+                </div>
+                <div class="details">
+                    <div class="detail-item"><span class="icon">👤</span> Alleine</div>
+                    <div class="detail-item"><span class="icon">✈️</span> Flug</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-section">
+            <div class="year-label">2017</div>
+            <div class="event-card">
+                <div class="event-header">
+                    <span>🇪🇸 Barcelona</span>
+                    <span class="date-info">24. Juli – 02. Aug.</span>
+                </div>
+                <div class="details">
+                    <div class="detail-item"><span class="icon">👤</span> Alleine</div>
+                    <div class="detail-item"><span class="icon">✈️</span> Flug</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-section">
+            <div class="year-label">2018</div>
+            <div class="event-card">
+                <div class="event-header">
+                    <span>🇪🇸 Badalona</span>
+                    <span class="date-info">17. – 22. Okt.</span>
+                </div>
+                <div class="details">
+                    <div class="detail-item"><span class="icon">👥</span> Kevin, Karan, Leydson, Yosniel</div>
+                    <div class="detail-item"><span class="icon">🚗</span> Roadtrip</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-section">
+            <div class="year-label">2019</div>
+            <div class="event-card">
+                <div class="event-header"><span>🇩🇪 Hamburg</span> <span class="date-info">22. – 25. Feb.</span></div>
+                <div class="details">
+                    <div class="detail-item"><span class="icon">👥</span> Karan, Riad, Hunza, Leydson, Yosniel</div>
+                    <div class="detail-item"><span class="icon">🚗</span> Roadtrip</div>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-header"><span>🇩🇪 Frankfurt</span> <span class="date-info">02. – 03. Aug.</span></div>
+                <div class="details">
+                    <div class="detail-item"><span class="icon">👥</span> Hunza, Kevin</div>
+                    <div class="detail-item"><span class="icon">🚗</span> Roadtrip</div>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-header"><span>🇳🇱 Hoofddorp</span> <span class="date-info">06. – 08. Sept.</span></div>
+                <div class="details">
+                    <div class="detail-item"><span class="icon">👥</span> Karan, Hunza, Yosniel</div>
+                    <div class="detail-item"><span class="icon">🚗</span> Roadtrip</div>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-header"><span>🇩🇪 Köln</span> <span class="date-info">23. – 24. Dez.</span></div>
+                <div class="details">
+                    <div class="detail-item"><span class="icon">👥</span> Hunza</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-section">
+            <div class="year-label">2020</div>
+            <div class="event-card">
+                <div class="event-header">
+                    <span>🇳🇱 Den Haag</span>
+                    <span class="date-info">28. – 30. Juli</span>
+                </div>
+                <div class="details">
+                    <div class="detail-item"><span class="icon">👥</span> Francesca</div>
+                    <div class="detail-item"><span class="icon">🚗</span> Roadtrip</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-section">
+            <div class="year-label">2021</div>
+            <div class="event-card">
+                <div class="event-header"><span>🇩🇪 Hauzenberg</span> <span class="date-info">19. – 22. Feb.</span></div>
+                <div class="details">
+                    <div class="detail-item"><span class="icon">👥</span> Lakhi, Kevin, Riad, Karan, Hunza</div>
+                    <div class="detail-item"><span class="icon">🚗</span> Roadtrip</div>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-header"><span>🇮🇹 Mailand & Rimini</span> <span class="date-info">22. – 29. Juli</span></div>
+                <div class="details">
+                    <div class="detail-item"><span class="icon">👥</span> Zakariye, Karan, Hunza</div>
+                    <div class="detail-item"><span class="icon">🚗</span> Roadtrip</div>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-header"><span>🇪🇸 Mallorca</span> <span class="date-info">16. – 18. Juli</span></div>
+                <div class="details">
+                    <div class="detail-item"><span class="icon">👥</span> Francesca</div>
+                    <div class="detail-item"><span class="icon">✈️</span> Flug</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-section">
+            <div class="year-label">2022</div>
+            <div class="event-card">
+                <div class="event-header"><span>🇪🇸 Barcelona</span> <span class="date-info">07. – 11. Mai</span></div>
+                <div class="details">
+                    <div class="detail-item"><span class="icon">👥</span> Lakhwinder, Rakesh</div>
+                    <div class="detail-item"><span class="icon">✈️</span> Flug</div>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-header"><span>🇵🇰 Islamabad</span> <span class="date-info">09. – 23. Nov.</span></div>
+                <div class="details">
+                    <div class="detail-item"><span class="icon">👥</span> Familie</div>
+                    <div class="detail-item"><span class="icon">✈️</span> Flug</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-section">
+            <div class="year-label">2023</div>
+            <div class="event-card">
+                <div class="event-header"><span>🇳🇴 Oslo</span> <span class="date-info">06. – 08. Jan.</span></div>
+                <div class="details"><div class="detail-item"><span class="icon">👥</span> Yasir</div></div>
+            </div>
+            <div class="event-card">
+                <div class="event-header"><span>🇨🇿 Prag</span> <span class="date-info">17. – 19. März</span></div>
+                <div class="details">
+                    <div class="detail-item"><span class="icon">👥</span> Kevin, Karan, Hunza</div>
+                    <div class="detail-item"><span class="icon">🚗</span> Roadtrip</div>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-header"><span>🇧🇪 Brüssel</span> <span class="date-info">28. – 29. Juli</span></div>
+                <div class="details">
+                    <div class="detail-item"><span class="icon">👥</span> Kevin, Karan, Hunza</div>
+                    <div class="detail-item"><span class="icon">🚗</span> Roadtrip</div>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-header"><span>🇹🇷 Antalya</span> <span class="date-info">19. – 23. Juni</span></div>
+                <div class="details">
+                    <div class="detail-item"><span class="icon">👥</span> Familie</div>
+                    <div class="detail-item"><span class="icon">✈️</span> Flug</div>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-header"><span>🇮🇹 Neapel</span> <span class="date-info">01. – 08. Aug.</span></div>
+                <div class="details">
+                    <div class="detail-item"><span class="icon">👥</span> Francesca</div>
+                    <div class="detail-item"><span class="icon">✈️</span> Flug</div>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-header"><span>🇪🇸 Mallorca</span> <span class="date-info">17. – 24. Aug.</span></div>
+                <div class="details">
+                    <div class="detail-item"><span class="icon">👥</span> Hunza, Kevin</div>
+                    <div class="detail-item"><span class="icon">✈️</span> Flug</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-section">
+            <div class="year-label">2024</div>
+            <div class="event-card">
+                <div class="event-header"><span>🇩🇪 Frankfurt</span> <span class="date-info">17. – 18. Feb.</span></div>
+                <div class="details">
+                    <div class="detail-item"><span class="icon">👥</span> Ali, Yasir</div>
+                    <div class="detail-item"><span class="icon">🚗</span> Roadtrip</div>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-header"><span>🇹🇷 Istanbul & Tuzla</span> <span class="date-info">04. – 13. Juni</span></div>
+                <div class="details"><div class="detail-item"><span class="icon">👥</span> Familie</div></div>
+            </div>
+            <div class="event-card">
+                <div class="event-header"><span>🇪🇸 Mallorca</span> <span class="date-info">15. – 18. Juni</span></div>
+                <div class="details">
+                    <div class="detail-item"><span class="icon">👥</span> Ali, Kamran</div>
+                    <div class="detail-item"><span class="icon">✈️</span> Flug</div>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-header"><span>🇧🇪 Ans</span> <span class="date-info">23. – 24. Nov.</span></div>
+                <div class="details"><div class="detail-item"><span class="icon">👥</span> Zadran, Ali</div></div>
+            </div>
+        </div>
+
+        <div class="year-section">
+            <div class="year-label">2025</div>
+            <div class="event-card">
+                <div class="event-header"><span>🇪🇸 Mallorca</span> <span class="date-info">05. – 07. Apr.</span></div>
+                <div class="details">
+                    <div class="detail-item"><span class="icon">👥</span> Yasir, Ali</div>
+                    <div class="detail-item"><span class="icon">✈️</span> Flug</div>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-header"><span>🇹🇷 Antalya</span> <span class="date-info">30. Mai – 05. Juni</span></div>
+                <div class="details"><div class="detail-item"><span class="icon">👥</span> Familie</div></div>
+            </div>
+            <div class="event-card">
+                <div class="event-header"><span>🇭🇷 Zadar</span> <span class="date-info">16. – 19. Juni</span></div>
+                <div class="details">
+                    <div class="detail-item"><span class="icon">👥</span> Francesca</div>
+                    <div class="detail-item"><span class="icon">✈️</span> Flug</div>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-header"><span>🇵🇹 Lissabon</span> <span class="date-info">02. – 07. Juli</span></div>
+                <div class="details">
+                    <div class="detail-item"><span class="icon">👥</span> Karan</div>
+                    <div class="detail-item"><span class="icon">✈️</span> Flug</div>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-header"><span>🇬🇧 London</span> <span class="date-info">16. – 19. Okt.</span></div>
+                <div class="details">
+                    <div class="detail-item"><span class="icon">👥</span> Francesca</div>
+                    <div class="detail-item"><span class="icon">✈️</span> Flug</div>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-header"><span>🇵🇹 Faro / Albufeira</span> <span class="date-info">02. – 19. Nov.</span></div>
+                <div class="details">
+                    <div class="detail-item"><span class="icon">👥</span> Hinflug: Karan, Kevin, Hunza</div>
+                    <div class="detail-item"><span class="icon">👤</span> Rückflug: allein</div>
+                    <div class="detail-item"><span class="icon">✈️</span> Flug</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-section">
+            <div class="year-label">2026</div>
+            <div class="event-card">
+                <div class="event-header"><span>🇪🇸 Barcelona</span> <span class="date-info">06. – 12. Mai</span></div>
+                <div class="details">
+                    <div class="detail-item"><span class="icon">👥</span> Familie</div>
+                    <div class="detail-item"><span class="icon">✈️</span> Flug</div>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-header"><span>🇬🇧 London</span> <span class="date-info">29. – 31. Mai</span></div>
+                <div class="details">
+                    <div class="detail-item"><span class="icon">👥</span> Ali, Kamran</div>
+                    <div class="detail-item"><span class="icon">✈️</span> Flug</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
